@@ -39,7 +39,7 @@ A deep dive into Full-Stack web development:
 ---
 # Day-wise Summary
 
-## Day1(22nd Dec 2025)(Phase 1):
+## Day 1(22nd Dec 2025)(Phase 1):
 ---
 **What is done today:**
 1. Environment Setup: Successfully configured Git Bash and linked it to GitHub repository (https://github.com/amitabhsingh64/BR-Frontend-Training).<br>
@@ -57,7 +57,7 @@ A deep dive into Full-Stack web development:
 1. Merge Conflicts: Resolved a (main|MERGING) block by aborting and correctly rebasing local changes.<br>
 2. Identity Mismatch: Fixed the `<oldname>` vs. Amitabh Singh author name issue in the Git logs.<br>
 3. Vim Swap Files: Successfully bypassed .swp file warnings to complete the merge process.<br><br>
-## Day2(23rd Dec 2025):
+## Day 2(23rd Dec 2025):
 **What is done today:**
 1. Linux & WSL: Practiced essential Bash commands (ls, cd, mkdir, touch) within the WSL environment to manage project directories.<br>
 2. Git Mastery: Resolved "unrelated histories" and "non-fast-forward" errors; practiced Interactive Rebasing and Vim navigation.<br>
@@ -71,7 +71,17 @@ A deep dive into Full-Stack web development:
 1. Vim/CLI Friction: Initial difficulty with Vim motions and terminal navigation, which improved with practice.<br>
 2. Syncing Issues: Faced Git push rejections and capitalization mismatches between HTML IDs and JS.<br>
 ---
-
+## Day 3(24th Dec 2025):
+**What is done today:**
+1. basics of HTML, CSS, JS<br>
+2. Made form, temperature converter(using js)<br>
+3. Practiced CSS by styling HTML webpages<br>
+**What I will do next:**
+1. Learn about js functions, async await.<br>
+2. Learn about Event loop architecture<br>
+**Is there any issue you faced:**
+1. None
+---
 ## ✍️ Author
 **Amitabh Singh**
 * 4th Year B.Tech CS (AI-ML)
