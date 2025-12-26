@@ -27,13 +27,13 @@ A deep dive into Full-Stack web development:
 | **Version Control** | Git, GitHub |
 | **Scripting** | Bash / Shell |
 | **CI/CD** | GitHub Actions |
-| **Web Dev** | *Loading...* |
+| **Web Dev** | *HTML, CSS, JS* |
 
 ---
 
 ## 📂 Project Structure
 
-* `/docs`: Learning material .
+* `/Front-end-practice`: Front-end-practice Practice .
 ---
 
 ---
@@ -42,7 +42,7 @@ A deep dive into Full-Stack web development:
 ## Day1(22nd Dec 2025)(Phase 1):
 ---
 **What is done today:**
-1. Environment Setup: Successfully configured Git Bash and linked it to GitHub repository (https://github.com/amitabhsingh64/BridgeLabz).<br>
+1. Environment Setup: Successfully configured Git Bash and linked it to GitHub repository (https://github.com/amitabhsingh64/BR-Frontend-Training).<br>
 2. Identity Correction: Performed an Interactive Rebase to manually review and fix author names across the entire commit history for a professional profile.<br>
 3. Repository Synchronization: Resolved non-fast-forward errors and handled unrelated histories during a complex branch merge.<br>
 4. CLI Proficiency: Learned terminal navigation (Vim, Pagers, mv commands) and understood the "Three-Stage" Git architecture (Working Directory vs. Staging vs. Repo).<br>
