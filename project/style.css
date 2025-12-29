@@ -1,17 +1,11 @@
 body {
-    margin: 0; /* Prevents unwanted white space around the edges */
+    margin: 0;
     width: 1920px;
     height: 1080px;
     background-color: #F7F7F7;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 #nav_container {
-    position: absolute;
-    top: 0px;
-    left: 0px;
     width: 100%;
     height: 106px;
     background-color: #FFFFFF;
@@ -19,37 +13,43 @@ body {
 
 #nav_bar {
     display: flex;
-    align-items: center; /* Vertically centers the text with the future icon */
-    /* gap: 15px;           Space between the text and the future icon */
+    align-items: center;
     padding-top: 32px;
     padding-left: 246px;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
 }
 
-/* This container holds the two lines of text */
 .logo-text {
-    line-height: 1.1;    /* Adjusts vertical spacing between the words */
+    line-height: 1.1;
 }
 
-/* Forces the spans to stack on top of each other */
+
 .logo-text span {
     display: block; 
 }
 
 .logo-top {
     color: #82A70C;
-    font-size: 22px; /* Adjust as needed */
+    font-size: 22px;
 }
 
 .logo-bottom {
     color: #42515F;
-    font-size: 22px; /* Adjust as needed */
+    font-size: 22px;
 }
 /* Placeholder Icon Styling */
 .logo-icon {
     width: 50px;
     height: 40px;
-    background-color: #82A70C; /* Using  green color */
-    border-radius: 4px;        /* Slightly rounded corners */
+    background-color: #82A70C; 
+    border-radius: 4px;
+}
+.below-nav{
+    display: flex;
+    align-items:flex-start;
+}
+#text-emp-d{
+    padding-top: 40px;
+    padding-left: 188px;
 }
