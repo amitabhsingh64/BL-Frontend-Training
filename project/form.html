@@ -82,84 +82,88 @@
                 <div class="row mb-3">
                     <label class="col-sm-3 col-form-label" style="color: #42515F;">Name</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control">
+                        <input id="eName" type="text" class="form-control">
+                        <p id="name_validation"></p>
                     </div>
                 </div>
 
                 <div class="row mb-3 align-items-center">
                     <label class="col-sm-3 col-form-label" style="color: #42515F;">Profile image</label>
-
-                    <div class="col-sm-9 d-flex gap-5 align-items-center">
-
-                        <label class="profile-option py-2">
-                            <input class="form-check-input " type="radio" name="profile">
+                    <div class="col-sm-9 ">
+                        <div class="d-flex gap-5 align-items-center">
+                            <label class="profile-option py-2">
+                            <input class="form-check-input " type="radio" name="profile" value="../assets/profile1.png">
                             <img src="../assets/profile1.png" class="avatar" alt="img">
                         </label>
 
                         <label class="profile-option">
-                            <input class="form-check-input " type="radio" name="profile">
+                            <input class="form-check-input " type="radio" name="profile" value="../assets/profile2.png">
                             <img src="../assets/profile2.png" class="avatar" alt="img">
                         </label>
 
                         <label class="profile-option">
-                            <input class="form-check-input " type="radio" name="profile">
+                            <input class="form-check-input " type="radio" name="profile" value="../assets/profile3.png">
                             <img src="../assets/profile3.png" class="avatar" alt="img">
                         </label>
 
                         <label class="profile-option">
-                            <input class="form-check-input " type="radio" name="profile">
+                            <input class="form-check-input " type="radio" name="profile" value="../assets/profile4.png">
                             <img src="../assets/profile4.png" class="avatar" alt="img">
                         </label>
-
+                        </div>
+                        <p id="profile_validation"></p>
                     </div>
                 </div>
-
+                
 
                 <div class="row mb-3">
                     <label class="col-sm-3 col-form-label" style="color: #42515F;">Gender</label>
                     <div class="col-sm-9">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input " type="radio" name="gender">
+                            <input class="form-check-input " type="radio" name="gender" value="Male">
                             <label class="form-check-label" style="color: #42515F;">Male</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gender">
+                            <input class="form-check-input" type="radio" name="gender" value="Female">
                             <label class="form-check-label" style="color: #42515F;">Female</label>
                         </div>
+                        <p id="Gender_validation"></p>
                     </div>
                 </div>
 
                 <div class="row mb-3">
-                    <label class="col-sm-3 col-form-label">Department</label>
+                    <label class="col-sm-3 col-form-label" style="color: #42515F;">Department</label>
                     <div class="col-sm-9">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox"> HR
+                            <input class="form-check-input" name="DepartmentOptions" type="checkbox" value="HR"> HR
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox"> Sales
+                            <input class="form-check-input" name="DepartmentOptions" type="checkbox" value="Sales"> Sales
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox"> Finance
+                            <input class="form-check-input" name="DepartmentOptions" type="checkbox" value="Finance"> Finance
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox"> Engineer
+                            <input class="form-check-input" name="DepartmentOptions" type="checkbox" value="Engineer"> Engineer
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox"> Others
+                            <input class="form-check-input" name="DepartmentOptions" type="checkbox" value="Others"> Others
                         </div>
+                        <p id="Department_validation"></p>
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <label class="col-sm-3 col-form-label" style="color: #42515F;">Salary</label>
                     <div class="col-sm-9">
-                        <select class="form-select">
+                        <select class="form-select" id="salaryRange">
                             <option>Select Salary</option>
                             <option>₹ 10,000</option>
                             <option>₹ 15,000</option>
                             <option>₹ 30,000</option>
                             <option>₹ 45,000</option>
                         </select>
+                        <p id="salary_validation"></p>
                     </div>
                 </div>
 
@@ -167,92 +171,37 @@
                     <label class="col-sm-3 col-form-label" style="color: #42515F;">Start Date</label>
                     <div class="col-sm-9 row">
                         <div class="col">
-                            <select class="form-select">
-                                <option selected>Day</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
-                                <option>11</option>
-                                <option>12</option>
-                                <option>13</option>
-                                <option>14</option>
-                                <option>15</option>
-                                <option>16</option>
-                                <option>17</option>
-                                <option>18</option>
-                                <option>19</option>
-                                <option>20</option>
-                                <option>21</option>
-                                <option>22</option>
-                                <option>23</option>
-                                <option>24</option>
-                                <option>25</option>
-                                <option>26</option>
-                                <option>27</option>
-                                <option>28</option>
-                                <option>29</option>
-                                <option>30</option>
-                                <option>31</option>
+                            <select class="form-select" id="date">
+                                <option selected value="">Day</option>
                             </select>
                         </div>
                         <div class="col">
-                            <select class="form-select">
-                                <option selected>Month</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
-                                <option>11</option>
-                                <option>12</option>
+                            <select class="form-select" id="month">
+                                <option selected value="">Month</option>
                             </select>
                         </div>
                         <div class="col">
-                            <select class="form-select">
-                                <option selected>Year</option>
-                                <option>2015</option>
-                                <option>2016</option>
-                                <option>2017</option>
-                                <option>2018</option>
-                                <option>2019</option>
-                                <option>2020</option>
-                                <option>2021</option>
-                                <option>2022</option>
-                                <option>2023</option>
-                                <option>2024</option>
-                                <option>2025</option>
-                                <option>2026</option>
-
+                            <select class="form-select" id="year">
+                                <option selected value="">Year</option>
                             </select>
                         </div>
+                        <p id="date_validation"></p>
                     </div>
                 </div>
 
                 <div class="row mb-4">
-                    <label class="col-sm-3 col-form-label" style="color: #42515F;">Notes</label>
+                    <label class="col-sm-3 col-form-label" style="color: #42515F;" >Notes</label>
                     <div class="col-sm-9">
-                        <textarea class="form-control" rows="3"></textarea>
+                        <textarea class="form-control" rows="3" id="Textarea1"></textarea>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class=" d-flex justify-content-between">
-                        <button class="btn px-5"><span style="color: #42515F;">Cancel</span></button>
+                        <button class="btn px-5" id="btnCancel" type="button"><span style="color: #42515F;" >Cancel</span></button>
                         <div>
-                            <button class="btn mx-2 px-5"><span style="color: #42515F;">Submit</span></button>
-                            <button class="btn px-5"><span style="color: #42515F;">Reset</span></button>
+                            <button class="btn mx-2 px-5" id="btnSubmit"><span style="color: #42515F;">Submit</span></button>
+                            <button class="btn px-5" type="button"><span style="color: #42515F;">Reset</span></button>
                         </div>
                     </div>
                 </div>
@@ -260,7 +209,7 @@
             </form>
         </div>
     </div>
-
+    <script src="../Scripts/addEmployees.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,70 @@
+{
+  "employees": [
+    {
+      "name": "Amitabh Singh",
+      "profileImage": "../assets/profile1.png",
+      "gender": "Male",
+      "departments": [
+        "HR",
+        "Engineer"
+      ],
+      "salary": "₹ 45,000",
+      "startDate": "12-January-2023",
+      "notes": "Senior Developer",
+      "id": "1"
+    },
+    {
+      "name": "Rohit A",
+      "profileImage": "../assets/profile1.png",
+      "gender": "Male",
+      "departments": [
+        "HR",
+        "Sales"
+      ],
+      "salary": "₹ 15,000",
+      "startDate": "17-November-2017",
+      "notes": "None",
+      "id": "0b09"
+    },
+    {
+      "id": "c4f8",
+      "name": "Aryan",
+      "profileImage": "../assets/profile3.png",
+      "gender": "Male",
+      "departments": [
+        "Finance"
+      ],
+      "salary": "₹ 45,000",
+      "startDate": "21-November-2025",
+      "notes": "Finance Analyst"
+    },
+    {
+      "name": "smriti",
+      "profileImage": "../assets/profile2.png",
+      "gender": "Female",
+      "departments": [
+        "HR"
+      ],
+      "salary": "₹ 30,000",
+      "startDate": "19-December-2016",
+      "notes": "",
+      "id": "788c"
+    },
+    {
+      "name": "Harsh",
+      "profileImage": "../assets/profile1.png",
+      "gender": "Male",
+      "departments": [
+        "HR",
+        "Sales",
+        "Finance",
+        "Engineer",
+        "Others"
+      ],
+      "salary": "₹ 45,000",
+      "startDate": "19-November-2018",
+      "notes": "",
+      "id": "dbed"
+    }
+  ]
+}
