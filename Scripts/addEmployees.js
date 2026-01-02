@@ -43,14 +43,14 @@ updateDays();
 
 // --- CHECK FOR EDIT MODE ON LOAD ---
 window.addEventListener('DOMContentLoaded', () => {
-    // 1. Get the ID from the URL (e.g., ?id=1)
+    // 1. Geting the ID from the URL (e.g., ?id=1)
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id');
 
     if (id) {
         console.log("Edit Mode Detected for ID:", id);
         
-        // 2. Change Submit Button Text to "Update"
+        // 2. Changing Submit Button Text to "Update"
         const submitBtn = document.getElementById('btnSubmit');
         if (submitBtn) submitBtn.innerText = "Update";
 
@@ -170,6 +170,7 @@ function validateFormData() {
 //   if (!name || !profileImage || !gender || departments.length === 0 || !salary || !date || !month || !year) {
 //     alert('Please fill in all required fields.');
 //     return null;}
+
 
   const deptArray = Array.from(departments).map(d => d.value);
 

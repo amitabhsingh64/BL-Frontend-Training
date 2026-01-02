@@ -1,0 +1,40 @@
+body {
+  background-color: #f7f7f7;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+
+/* Button Styling */
+.btn-custom {
+  background-color: #82a70c;
+  color: white;
+}
+.btn-custom:hover {
+  background-color: #6e8d0a;
+  color: white;
+  border-color: #6e8d0a;
+}
+
+/* Badge Styling */
+.badge-custom {
+  background-color: #e9fea5;
+  color: #3d3d3d;
+  margin: 2px;
+}
+
+/* Avatar Styling */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+/* Search Input Styling (Used by JS when swapping) */
+.search-input-active {
+  border: 1px solid #82a70c !important;
+  outline: none;
+  width: 250px; /* Width when expanded */
+  transition: width 0.4s ease-in-out;
+}
