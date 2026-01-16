@@ -20,8 +20,8 @@ export default function Sidebar({ open }) {
         sx: {
           top: HEADER_HEIGHT,
           height: `calc(100% - ${HEADER_HEIGHT}px)`,
-          width: open ? 260 : 70,
-          transition: "width 0.4s",
+          width: open ? 160 : 70,
+          transition: "width 10s",
           overflowX: "hidden",
           borderRight: "none",
         },
@@ -40,9 +40,12 @@ export default function Sidebar({ open }) {
             <ListItemButton
               key={item.text}
               sx={{
-                borderRadius: "0 35px 35px 0",
-                mx: 1,
-                my: 0.5,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                mx: .4,
+                my: 1,
+                borderRadius: "55px",
                 "&:hover": { backgroundColor: "#feefc3" },
               }}
             >
@@ -50,7 +53,7 @@ export default function Sidebar({ open }) {
                 sx={{
                   minWidth: 0,
                   justifyContent: "center",
-                  // mr: open ? 2 : "auto",
+                   mr: open ? 2 : "auto",
                 }}
               >
                 {item.icon}

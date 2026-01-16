@@ -76,10 +76,6 @@ export default function Login() {
             helperText={errors.email}
           />
 
-          <Link underline="none" fontWeight={500}>
-            Forgot email?
-          </Link>
-
           {/* Password */}
           <TextField
             label="Password"

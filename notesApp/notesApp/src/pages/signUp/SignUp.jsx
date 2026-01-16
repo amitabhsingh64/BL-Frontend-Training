@@ -84,7 +84,7 @@ const Signup = () => {
                   Fundoo
                 </Typography>
 
-                <Typography variant="h4" fontWeight={500} mb={3}>
+                <Typography fontWeight={500} mb={3} style={{fontSize: '2rem'}}>
                   Create your Fundoo Account
                 </Typography>
 
@@ -115,14 +115,6 @@ const Signup = () => {
                   error={!!errors.email}
                   helperText={errors.email}
                 />
-
-                <Typography variant="body2" color="text.secondary" mb={1}>
-                  You'll need to confirm that this email belongs to you.
-                </Typography>
-
-                <Link underline="none" sx={{ fontWeight: 500 }}>
-                  Create a new email address instead
-                </Link>
 
                 {/* Password */}
                 <Box sx={{ display: "flex", gap: 2, mt: 3 }}>
