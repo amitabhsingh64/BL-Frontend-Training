@@ -3,13 +3,11 @@ import axios from "axios";
 import { Box, Grid, CircularProgress, Typography } from "@mui/material"; 
 import Header from "../../components/headerComponent/headerComponent";
 import Sidebar from "../../components/sideBar/sideBar";
-import { Outlet } from "react-router-dom";
-import AddNotesBlock from "../../components/addNotesBlock/addNotesBlock";
 import NoteCard from "../../components/noteCard/noteCard"; 
 
 const drawerWidth = 240; 
 
-const Dashboard = () => {
+const Trash = () => {
   const [open, setOpen] = useState(false);
   const [notesList, setNotesList] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -20,32 +18,26 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    const fetchNotes = async () => {
+    const fetchTrashNotes = async () => {
         try {
             const user = JSON.parse(localStorage.getItem("user"));
             const userId = user ? user.id : null;
 
             const response = await axios.get("http://localhost:3001/notes");
             
-            // FILTER: 
-            // 1. Must match User ID
-            // 2. Must NOT be in Trash
-            // 3. Must NOT be Archived
-            const myNotes = response.data.filter(note => 
-                note.userId === userId && 
-                note.isTrash !== true && 
-                note.isArchive !== true
+            const trashNotes = response.data.filter(note => 
+                note.userId === userId && note.isTrash === true
             );
             
-            setNotesList(myNotes.reverse()); 
+            setNotesList(trashNotes.reverse()); 
             setLoading(false);
         } catch (error) {
-            console.error("Error fetching notes:", error);
+            console.error("Error fetching trash notes:", error);
             setLoading(false);
         }
     };
 
-    fetchNotes();
+    fetchTrashNotes();
   }, [refreshTrigger]);
 
   const autoRefresh = () => {
@@ -55,25 +47,28 @@ const Dashboard = () => {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Header toggle={toggle} />
+      
       <Sidebar open={open} onClose={() => setOpen(false)} />
-
       <Box 
         component="main" 
         sx={{ 
-          display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 2,
+          display: 'flex', 
+          flexDirection: 'column', 
+          alignItems: 'center', 
+          mt: 2,
           marginLeft: open ? `${drawerWidth}px` : '0px', 
           width: open ? `calc(100% - ${drawerWidth}px)` : '100%', 
           transition: 'margin 0.3s ease, width 0.3s ease',
         }}
       >
-        <AddNotesBlock autoRefresh={autoRefresh} />
 
         <Box sx={{ width: '100%', maxWidth: '1400px', mt: 5, px: 3 }}>
+
           {loading ? (
              <Box sx={{ display: 'flex', justifyContent: 'center', mt: 5 }}><CircularProgress /></Box>
           ) : notesList.length === 0 ? (
              <Typography variant="body1" align="center" sx={{ mt: 5, color: 'text.secondary' }}>
-                Your notes appear here
+                Trash is empty.
              </Typography>
           ) : (
             <Grid container spacing={2}>
@@ -82,17 +77,15 @@ const Dashboard = () => {
                     item xs={12} sm={6} md={4} lg={3} key={note.id}
                     sx={{ '@media (min-width: 1200px)': { flexBasis: '20%', maxWidth: '20%' } }}
                 >
-                    {/* CRITICAL: Pass autoRefresh so trashing a note updates this list instantly */}
                     <NoteCard note={note} autoRefresh={autoRefresh} />
                 </Grid>
                 ))}
             </Grid>
           )}
         </Box>
-        <Outlet />
       </Box>
     </Box>
   );
 };
 
-export default Dashboard;
+export default Trash;

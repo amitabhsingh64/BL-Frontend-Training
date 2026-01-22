@@ -1,0 +1,87 @@
+{
+  "users": [
+    {
+      "id": "u1",
+      "firstName": "Amitabh",
+      "lastName": "Singh",
+      "email": "alex@example.com",
+      "password": "password123"
+    },
+    {
+      "id": "f5c18ad4-e274-4a05-b93b-dc78b86bc1ca",
+      "firstName": "AMITABH",
+      "lastName": "SINGH",
+      "email": "amitabh64@gmail.com",
+      "password": "amitabh@128"
+    },
+    {
+      "id": "b9c321ef-c2c6-4a55-b599-7bb19f3781ab",
+      "firstName": "test",
+      "lastName": "test",
+      "email": "test1@gmail.com",
+      "password": "test1@1234"
+    }
+  ],
+  "notes": [
+    {
+      "id": 1,
+      "userId": "u1",
+      "title": "Project Ideas",
+      "text": "Build a React Sidebar...",
+      "bgColor": "#ffffff",
+      "bgImage": "",
+      "isTrash": false,
+      "isArchive": false
+    },
+    {
+      "userId": "f5c18ad4-e274-4a05-b93b-dc78b86bc1ca",
+      "title": "11",
+      "text": "11",
+      "bgColor": "#faafa8",
+      "bgImage": "/src/assets/colorPalletBgImg/food_light_thumb_0615.svg",
+      "isTrash": false,
+      "isArchive": false,
+      "id": 2
+    },
+    {
+      "userId": "f5c18ad4-e274-4a05-b93b-dc78b86bc1ca",
+      "title": "12",
+      "text": "2",
+      "bgColor": "#ffffff",
+      "bgImage": "",
+      "isTrash": false,
+      "isArchive": false,
+      "id": 4
+    },
+    {
+      "userId": "f5c18ad4-e274-4a05-b93b-dc78b86bc1ca",
+      "title": "1",
+      "text": "5",
+      "bgColor": "#fff8b8",
+      "bgImage": "",
+      "isTrash": false,
+      "isArchive": false,
+      "id": 5
+    },
+    {
+      "userId": "f5c18ad4-e274-4a05-b93b-dc78b86bc1ca",
+      "title": "5",
+      "text": "7",
+      "bgColor": "#ffffff",
+      "bgImage": "",
+      "isTrash": false,
+      "isArchive": false,
+      "id": 6
+    },
+    {
+      "userId": "f5c18ad4-e274-4a05-b93b-dc78b86bc1ca",
+      "title": "7",
+      "text": "1",
+      "bgColor": "#efeff1",
+      "bgImage": "",
+      "isTrash": false,
+      "isArchive": false,
+      "id": 7
+    }
+  ]
+}

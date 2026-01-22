@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Popover,
   Box,
@@ -13,42 +14,55 @@ import AddIcon from "@mui/icons-material/Add";
 import LogoutIcon from "@mui/icons-material/Logout";
 
 const AccountMenu = ({ anchorEl, onClose }) => {
+  const navigate = useNavigate();
   const open = Boolean(anchorEl);
 
-  const fullName = "Amitabh Singh";
-  const email = "amitabhsingh128@gmail.com";
+  // 1.user data from Local Storage
+  const user = JSON.parse(localStorage.getItem("user")) || {};
 
-  const firstName = fullName.split(" ")[0];
+  // 2.Dynamic values
+  const firstName = user.firstName || "Guest";
+  const lastName = user.lastName || "";
+  const email = user.email || "No email";
+  const fullName = `${firstName} ${lastName}`;
   const initial = firstName.charAt(0).toUpperCase();
 
+  // 3. Handle Logout
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    onClose();
+    navigate("/login");
+  };
+
   const googlePopupButtonStyle = {
-  height: 50,
-  bgcolor:"white",                    
-  borderRadius: "999px 16px 16px 999px", 
-  textTransform: "none",
-  fontWeight: 500,
-  borderColor: "#8fa2ca",
-  color: "#3c4043",
-  "&:hover": {
-    backgroundColor: "#919496",
-    borderColor: "#dadce0",
-    color: "#ffffff"
-  },
-};
+    height: 50,
+    bgcolor: "white",
+    borderRadius: "999px 16px 16px 999px",
+    textTransform: "none",
+    fontWeight: 500,
+    borderColor: "#8fa2ca",
+    color: "#3c4043",
+    "&:hover": {
+      backgroundColor: "#919496",
+      borderColor: "#dadce0",
+      color: "#ffffff",
+    },
+  };
+  
   const googlePopupButtonStyle2 = {
-  height: 50,
-  bgcolor:"white",                    
-  borderRadius: "16px 999px 999px 16px", 
-  textTransform: "none",
-  fontWeight: 500,
-  borderColor: "#dadce0",
-  color: "#3c4043",
-  "&:hover": {
-    backgroundColor: "#919496",
+    height: 50,
+    bgcolor: "white",
+    borderRadius: "16px 999px 999px 16px",
+    textTransform: "none",
+    fontWeight: 500,
     borderColor: "#dadce0",
-    color: "#ffffff"
-  },
-};
+    color: "#3c4043",
+    "&:hover": {
+      backgroundColor: "#919496",
+      borderColor: "#dadce0",
+      color: "#ffffff",
+    },
+  };
 
   return (
     <Popover
@@ -62,7 +76,7 @@ const AccountMenu = ({ anchorEl, onClose }) => {
           width: 420,
           borderRadius: 4,
           p: 2,
-          bgcolor:"#c7ebfc"
+          bgcolor: "#c7ebfc",
         },
       }}
     >
@@ -98,7 +112,7 @@ const AccountMenu = ({ anchorEl, onClose }) => {
         variant="h6"
         sx={{ mt: 1, fontWeight: 500 }}
       >
-        Hey, {firstName.charAt(0).toUpperCase() + firstName.slice(1)}
+        Hey, {firstName}
       </Typography>
 
       {/* Manage account */}
@@ -106,7 +120,7 @@ const AccountMenu = ({ anchorEl, onClose }) => {
         <Button
           variant="none"
           sx={{
-            bgcolor:"white",
+            bgcolor: "white",
             borderRadius: 5,
             textTransform: "none",
             px: 3,
@@ -123,6 +137,7 @@ const AccountMenu = ({ anchorEl, onClose }) => {
           variant="none"
           startIcon={<AddIcon />}
           sx={googlePopupButtonStyle}
+          onClick={() => navigate("/login")}
         >
           Add account
         </Button>
@@ -132,6 +147,7 @@ const AccountMenu = ({ anchorEl, onClose }) => {
           variant="none"
           startIcon={<LogoutIcon />}
           sx={googlePopupButtonStyle2}
+          onClick={handleLogout} 
         >
           Sign out
         </Button>

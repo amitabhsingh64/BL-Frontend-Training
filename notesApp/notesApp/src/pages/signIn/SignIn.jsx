@@ -1,34 +1,79 @@
 import { useState, useRef } from "react";
-import { Link as RouterLink } from "react-router-dom";
-import {Box,Card,CardContent,TextField, Typography, Button, Link, IconButton, InputAdornment,} from "@mui/material";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
+import axios from "axios";
+import {
+  Box,
+  Card,
+  CardContent,
+  TextField,
+  Typography,
+  Button,
+  Link,
+  IconButton,
+  InputAdornment,
+  Alert,
+} from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 export default function Login() {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
   const emailRef = useRef();
   const passwordRef = useRef();
+  
   const [errors, setErrors] = useState({});
+  const [loginError, setLoginError] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     let newErrors = {};
 
-    if (!email.endsWith("@gmail.com")) {
-      newErrors.email = "must end with @gmail.com";
+    //Local validatiion
+    if (!email) {
+      newErrors.email = "Email is required";
+    } else if (!email.includes("@")) { 
+      newErrors.email = "Enter a valid email address";
     }
 
-    if (password.length < 8) {
+    if (!password) {
+      newErrors.password = "Password is required";
+    } else if (password.length < 8) {
       newErrors.password = "Password must be at least 8 characters";
     }
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
-    } else {
-      setErrors({});
-      alert("Login successful");
+      return;
+    }
+
+    //Server auth
+    try {
+      const response = await axios.get(
+        `http://localhost:3001/users?email=${email}&password=${password}`
+      );
+
+      if (response.data.length > 0) {
+        // found
+        const user = response.data[0];
+        
+        // Save user info to LocalStorage so we can use it in the Notes page
+        localStorage.setItem("user", JSON.stringify(user));
+        
+        console.log("Login Successful:", user);
+        setLoginError("");
+        
+        // Redirect to dashboard
+        navigate("/"); 
+      } else {
+        // no user found
+        setLoginError("Invalid email or password");
+      }
+    } catch (err) {
+      console.error("Login Error:", err);
+      setLoginError("Could not connect to the server.");
     }
   };
 
@@ -45,7 +90,6 @@ export default function Login() {
     >
       <Card sx={{ width: 420, p: 2 }}>
         <CardContent>
-
           {/* Logo */}
           <Typography
             variant="h5"
@@ -65,6 +109,13 @@ export default function Login() {
           <Typography variant="body1" color="text.secondary" mb={3} align="center">
             to continue to Fundoo
           </Typography>
+
+          {/* Server Error Message */}
+          {loginError && (
+            <Alert severity="error" sx={{ mb: 2 }}>
+              {loginError}
+            </Alert>
+          )}
 
           {/* Email */}
           <TextField
@@ -99,7 +150,7 @@ export default function Login() {
             }}
           />
 
-          <Link underline="none" fontWeight={500} sx={{ mt: 1, display: "block" }}>
+          <Link underline="none" fontWeight={500} sx={{ mt: 1, display: "block", cursor: 'pointer' }}>
             Forgot password?
           </Link>
 
@@ -107,10 +158,6 @@ export default function Login() {
           <Typography variant="body2" color="text.secondary" mt={4}>
             If first time signing in, your Fundoo Account password.
           </Typography>
-
-          <Link underline="none" fontWeight={500}>
-            Learn more
-          </Link>
 
           {/* Actions */}
           <Box
@@ -137,7 +184,6 @@ export default function Login() {
               Next
             </Button>
           </Box>
-
         </CardContent>
       </Card>
     </Box>

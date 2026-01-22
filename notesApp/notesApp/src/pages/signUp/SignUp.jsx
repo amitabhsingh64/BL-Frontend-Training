@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Link as RouterLink, useLocation } from "react-router-dom";
+import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom";
 import {
   Box,
   Card,
@@ -10,18 +10,21 @@ import {
   Link,
 } from "@mui/material";
 import shield from "../../assets/img.jpeg";
+import axios from "axios";
+import { v4 as uuidv4 } from 'uuid';
 
 const Signup = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const firstNameRef = useRef();
   const lastNameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();
-  console.log(location);
+  
   const [errors, setErrors] = useState({});
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const firstName = firstNameRef.current.value;
     const lastName = lastNameRef.current.value;
     const email = emailRef.current.value;
@@ -38,8 +41,8 @@ const Signup = () => {
       newErrors.lastName = "Enter a valid last name";
     }
 
-    if (!email.endsWith("@gmail.com")) {
-      newErrors.email = "Email must end with @gmail.com";
+    if (!email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)) { 
+       newErrors.email = "Enter a valid email address";
     }
 
     if (password.length < 8) {
@@ -52,9 +55,36 @@ const Signup = () => {
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
-    } else {
-      setErrors({});
-      alert("Form submitted successfully");
+      return;
+    } 
+    
+    //Backend logic
+    try {
+      const checkRes = await axios.get(`http://localhost:3001/users?email=${email}`);
+      
+      if (checkRes.data.length > 0) {
+        setErrors({ email: "This email is already registered" });
+        return;
+      }
+
+      //Creating User Object
+      const newUser = {
+        id: uuidv4(),
+        firstName,
+        lastName,
+        email,
+        password
+      };
+
+      // 3. Post to DB
+      await axios.post("http://localhost:3001/users", newUser);
+      
+      alert("Account created successfully!");
+      navigate("/login"); // Redirect to login page
+
+    } catch (error) {
+      console.error("Signup Error:", error);
+      alert("Something went wrong connecting to the server.");
     }
   };
 
