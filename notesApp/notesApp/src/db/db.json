@@ -24,7 +24,7 @@
   ],
   "notes": [
     {
-      "id": 1,
+      "id": "1",
       "userId": "u1",
       "title": "Project Ideas",
       "text": "Build a React Sidebar...",
@@ -41,7 +41,7 @@
       "bgImage": "/src/assets/colorPalletBgImg/food_light_thumb_0615.svg",
       "isTrash": false,
       "isArchive": false,
-      "id": 2
+      "id": "2"
     },
     {
       "userId": "f5c18ad4-e274-4a05-b93b-dc78b86bc1ca",
@@ -51,7 +51,7 @@
       "bgImage": "",
       "isTrash": false,
       "isArchive": false,
-      "id": 4
+      "id": "4"
     },
     {
       "userId": "f5c18ad4-e274-4a05-b93b-dc78b86bc1ca",
@@ -61,7 +61,7 @@
       "bgImage": "",
       "isTrash": false,
       "isArchive": false,
-      "id": 5
+      "id": "5"
     },
     {
       "userId": "f5c18ad4-e274-4a05-b93b-dc78b86bc1ca",
@@ -71,17 +71,17 @@
       "bgImage": "",
       "isTrash": false,
       "isArchive": false,
-      "id": 6
+      "id": "6"
     },
     {
       "userId": "f5c18ad4-e274-4a05-b93b-dc78b86bc1ca",
       "title": "7",
       "text": "1",
-      "bgColor": "#efeff1",
+      "bgColor": "#faafa8",
       "bgImage": "",
       "isTrash": false,
       "isArchive": false,
-      "id": 7
+      "id": "7"
     }
   ]
 }

@@ -74,7 +74,7 @@ function NoteCard({ note, autoRefresh }) {
              updateData = { bgImage: newImage, bgColor: "#ffffff" };
           }
 
-          await axios.patch(`http://localhost:3001/notes/${note.id}`, updateData);
+          await axios.patch(`http://localhost:3000/notes/${note.id}`, updateData);
           
           if (autoRefresh) autoRefresh();
       } catch (error) {
@@ -85,9 +85,9 @@ function NoteCard({ note, autoRefresh }) {
     e.stopPropagation();
     try {
         if (note.isTrash) {
-            await axios.delete(`http://localhost:3001/notes/${note.id}`);
+            await axios.delete(`http://localhost:3000/notes/${note.id}`);
         } else {
-            await axios.patch(`http://localhost:3001/notes/${note.id}`, {
+            await axios.patch(`http://localhost:3000/notes/${note.id}`, {
                 isTrash: true,
                 isArchive: false
             });
@@ -101,7 +101,7 @@ function NoteCard({ note, autoRefresh }) {
   const archiveNote = async (e) => {
     e.stopPropagation();
     try {
-        await axios.patch(`http://localhost:3001/notes/${note.id}`, {
+        await axios.patch(`http://localhost:3000/notes/${note.id}`, {
             isArchive: !note.isArchive,
             isTrash: false
         });
@@ -113,7 +113,7 @@ function NoteCard({ note, autoRefresh }) {
   const restoreNote = async (e) => {
       e.stopPropagation();
       try {
-          await axios.patch(`http://localhost:3001/notes/${note.id}`, {
+          await axios.patch(`http://localhost:3000/notes/${note.id}`, {
               isTrash: false,
               isArchive: false
           });

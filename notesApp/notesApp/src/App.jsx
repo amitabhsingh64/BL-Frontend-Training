@@ -6,13 +6,11 @@ import Signup from './pages/signUp/SignUp.jsx'
 import Login from './pages/signIn/SignIn.jsx'
 import Trash from './pages/trash/trash.jsx'
 import Archive from './pages/archive/archive.jsx'
-
-// Import the new Routes
 import AuthRoute from './routing/AuthRoutes.jsx'
 import ProtectedRoute from './routing/ProtectedRoutes.jsx'
 
 const router = createBrowserRouter([
-  // --- PUBLIC ROUTES (Restricted if logged in) ---
+  //PUBLIC ROUTES
   {
     path: '/signup',
     element: (
@@ -30,10 +28,9 @@ const router = createBrowserRouter([
     )
   },
 
-  // --- PRIVATE ROUTES (Restricted if NOT logged in) ---
+  //PRIVATE ROUTES
   {
     path: '/',
-    // Redirect root to dashboard (which is then protected)
     element: <Navigate to="/dashboard" replace />
   },
   {

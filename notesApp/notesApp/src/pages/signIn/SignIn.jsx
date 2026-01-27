@@ -52,23 +52,17 @@ export default function Login() {
     //Server auth
     try {
       const response = await axios.get(
-        `http://localhost:3001/users?email=${email}&password=${password}`
+        `http://localhost:3000/users?email=${email}&password=${password}`
       );
 
       if (response.data.length > 0) {
-        // found
         const user = response.data[0];
-        
-        // Save user info to LocalStorage so we can use it in the Notes page
         localStorage.setItem("user", JSON.stringify(user));
         
         console.log("Login Successful:", user);
         setLoginError("");
-        
-        // Redirect to dashboard
         navigate("/"); 
       } else {
-        // no user found
         setLoginError("Invalid email or password");
       }
     } catch (err) {

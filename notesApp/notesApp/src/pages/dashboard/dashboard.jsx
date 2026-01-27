@@ -25,12 +25,7 @@ const Dashboard = () => {
             const user = JSON.parse(localStorage.getItem("user"));
             const userId = user ? user.id : null;
 
-            const response = await axios.get("http://localhost:3001/notes");
-            
-            // FILTER: 
-            // 1. Must match User ID
-            // 2. Must NOT be in Trash
-            // 3. Must NOT be Archived
+            const response = await axios.get("http://localhost:3000/notes");
             const myNotes = response.data.filter(note => 
                 note.userId === userId && 
                 note.isTrash !== true && 

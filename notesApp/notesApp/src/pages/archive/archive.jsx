@@ -22,7 +22,7 @@ const Archive = () => {
         try {
             const user = JSON.parse(localStorage.getItem("user"));
             const userId = user ? user.id : null;
-            const response = await axios.get("http://localhost:3001/notes");
+            const response = await axios.get("http://localhost:3000/notes");
             const allNotes = response.data;
             const archivedNotes = allNotes.filter(note => {
                 const isUserMatch = note.userId === userId;

@@ -23,7 +23,7 @@ const Trash = () => {
             const user = JSON.parse(localStorage.getItem("user"));
             const userId = user ? user.id : null;
 
-            const response = await axios.get("http://localhost:3001/notes");
+            const response = await axios.get("http://localhost:3000/notes");
             
             const trashNotes = response.data.filter(note => 
                 note.userId === userId && note.isTrash === true

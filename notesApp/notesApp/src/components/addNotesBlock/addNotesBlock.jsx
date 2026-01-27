@@ -74,7 +74,7 @@ function AddNotesBlock({ autoRefresh }) {
     };
 
     try {
-        await axios.post("http://localhost:3001/notes", newNote);
+        await axios.post("http://localhost:3000/notes", newNote);
         console.log("Note saved:", newNote);
         
         // 2. TRIGGER AUTO REFRESH

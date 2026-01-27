@@ -60,7 +60,7 @@ const Signup = () => {
     
     //Backend logic
     try {
-      const checkRes = await axios.get(`http://localhost:3001/users?email=${email}`);
+      const checkRes = await axios.get(`http://localhost:3000/users?email=${email}`);
       
       if (checkRes.data.length > 0) {
         setErrors({ email: "This email is already registered" });
@@ -77,7 +77,7 @@ const Signup = () => {
       };
 
       // 3. Post to DB
-      await axios.post("http://localhost:3001/users", newUser);
+      await axios.post("http://localhost:3000/users", newUser);
       
       alert("Account created successfully!");
       navigate("/login"); // Redirect to login page
